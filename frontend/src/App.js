@@ -21,6 +21,7 @@ import ResourceAllocation from "./pages/ResourceAllocation";
 const App = () => {
   const [showManagerBoard, setShowManagerBoard] = useState(false);
   const [showSABoard, setShowSABoard] = useState(false);
+  const [showDeveloperBoard, setShowDeveloperBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const App = () => {
       setCurrentUser(user);
       setShowManagerBoard(user.roles.includes("ROLE_MANAGER"));
       setShowSABoard(user.roles.includes("ROLE_SA"));
+      setShowDeveloperBoard(user.roles.includes("ROLE_DEVELOPER"));
     }
   }, []);
 
@@ -43,7 +45,7 @@ const App = () => {
         <Link to={"/"} className="navbar-brand">
           Project Mgmt
         </Link>
-        <div className="navbar-nav mr-auto">
+        <div className="navbar-nav me-auto">
           <li className="nav-item">
             <Link to={"/home"} className="nav-link">
               Home
@@ -51,34 +53,16 @@ const App = () => {
           </li>
 
           {showManagerBoard && (
-            <li className="nav-item">
-              <Link to={"/manager"} className="nav-link">
-                Manager Board
-              </Link>
-            </li>
-          )}
-
-          {showManagerBoard && (
-            <li className="nav-item">
-              <Link to={"/create-project"} className="nav-link">
-                Create Project
-              </Link>
-            </li>
-          )}
-
-          {showManagerBoard && (
-            <li className="nav-item">
-              <Link to={"/projects"} className="nav-link">
-                Project List
-              </Link>
-            </li>
-          )}
-
-          {showManagerBoard && (
-            <li className="nav-item">
-              <Link to={"/resource-allocation"} className="nav-link">
-                Resource Allocation
-              </Link>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Project Management
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><Link to={"/manager"} className="dropdown-item">Manager Board</Link></li>
+                <li><Link to={"/create-project"} className="dropdown-item">Create Project</Link></li>
+                <li><Link to={"/projects"} className="dropdown-item">Project List</Link></li>
+                <li><Link to={"/resource-allocation"} className="dropdown-item">Resource Allocation</Link></li>
+              </ul>
             </li>
           )}
 
@@ -98,7 +82,7 @@ const App = () => {
             </li>
           )}
 
-          {currentUser && (
+          {showDeveloperBoard && !showManagerBoard && (
             <li className="nav-item">
               <Link to={"/dev"} className="nav-link">
                 Developer Board
@@ -108,20 +92,27 @@ const App = () => {
         </div>
 
         {currentUser ? (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to={"/profile"} className="nav-link">
-                {currentUser.username}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
-                LogOut
+          <div className="navbar-nav ms-auto">
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="/avatar.png" alt="User Avatar" style={{width: '30px', height: '30px', borderRadius: '50%'}} />
               </a>
+              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
+                <li>
+                  <Link to={"/profile"} className="dropdown-item">
+                    {currentUser.username}
+                  </Link>
+                </li>
+                <li>
+                  <a href="/login" className="dropdown-item" onClick={logOut}>
+                    LogOut
+                  </a>
+                </li>
+              </ul>
             </li>
           </div>
         ) : (
-          <div className="navbar-nav ml-auto">
+          <div className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link to={"/login"} className="nav-link">
                 Login

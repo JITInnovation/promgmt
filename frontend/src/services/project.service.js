@@ -15,10 +15,15 @@ const getProject = (id) => {
   return axios.get(API_URL + `/${id}`, { headers: authHeader() });
 };
 
+const getAllProjects = () => {
+  return axios.get(API_URL + '/all', { headers: authHeader() });
+};
+
 const ProjectService = {
     createProject,
     getProjects,
-    getProject
+    getProject,
+    getAllProjects
 }
 
 export default ProjectService;

@@ -38,4 +38,11 @@ public class ProjectController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/all")
+    @PreAuthorize("hasRole('DEVELOPER') or hasRole('MANAGER')")
+    public ResponseEntity<java.util.List<Project>> getAllProjectsList() {
+        java.util.List<Project> projects = projectRepository.findAll();
+        return ResponseEntity.ok(projects);
+    }
 }

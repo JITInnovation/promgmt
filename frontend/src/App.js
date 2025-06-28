@@ -17,7 +17,8 @@ import CreateProject from "./pages/CreateProject";
 import ProjectList from "./pages/ProjectList";
 import ProjectDetails from "./pages/ProjectDetails";
 import ResourceAllocation from "./pages/ResourceAllocation";
-import Dashboard from "./pages/Dashboard";
+import Timesheet from "./pages/Timesheet";
+
 
 const App = () => {
   const [showManagerBoard, setShowManagerBoard] = useState(false);
@@ -53,13 +54,7 @@ const App = () => {
             </Link>
           </li>
 
-          {currentUser && (
-            <li className="nav-item">
-              <Link to={"/dashboard"} className="nav-link">
-                Dashboard
-              </Link>
-            </li>
-          )}
+
 
           {showManagerBoard && (
             <li className="nav-item dropdown">
@@ -91,12 +86,19 @@ const App = () => {
             </li>
           )}
 
-          {showDeveloperBoard && !showManagerBoard && (
-            <li className="nav-item">
-              <Link to={"/dev"} className="nav-link">
-                Developer Board
-              </Link>
-            </li>
+          {showDeveloperBoard && (
+            <>
+              <li className="nav-item">
+                <Link to={"/dev"} className="nav-link">
+                  Developer Board
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/timesheet"} className="nav-link">
+                  Timesheet
+                </Link>
+              </li>
+            </>
           )}
         </div>
 
@@ -151,8 +153,9 @@ const App = () => {
           <Route path="/create-project" element={<CreateProject />} />
           <Route path="/projects" element={<ProjectList />} />
           <Route path="/projects/:id" element={<ProjectDetails />} />
-          <Route path="/resource-allocation" element={<ResourceAllocation />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/resource-allocation" element={<ResourceAllocation />} />
+          <Route path="/timesheet" element={<Timesheet />} />
+
         </Routes>
       </div>
     </div>

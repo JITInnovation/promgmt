@@ -21,10 +21,15 @@ const getProjectAllocations = (projectId) => {
     return axios.get(API_URL + `project/${projectId}`, { headers: authHeader() });
 };
 
+const getUserAllocations = (userId) => {
+    return axios.get(API_URL + `user/${userId}`, { headers: authHeader() });
+};
+
 const AllocationService = {
     createAllocation,
     getAssignableUsers,
-    getProjectAllocations
+    getProjectAllocations,
+    getUserAllocations
 }
 
 export default AllocationService;

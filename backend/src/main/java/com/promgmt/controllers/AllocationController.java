@@ -81,4 +81,11 @@ public class AllocationController {
         List<Allocation> allocations = allocationRepository.findByProjectId(projectId);
         return ResponseEntity.ok(allocations);
     }
+
+    @GetMapping("/user/{userId}")
+    @PreAuthorize("hasRole('DEVELOPER') or hasRole('MANAGER')")
+    public ResponseEntity<List<Allocation>> getAllocationsByUser(@PathVariable String userId) {
+        List<Allocation> allocations = allocationRepository.findByUserId(userId);
+        return ResponseEntity.ok(allocations);
+    }
 }

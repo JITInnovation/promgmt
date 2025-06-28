@@ -75,7 +75,7 @@ const ResourceAllocation = () => {
                             <select name="user" className="form-control" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)} required>
                                 <option value="">-- Select a User --</option>
                                 {assignableUsers.map(u => (
-                                    <option key={u.id} value={u.id}>{u.username} ({u.function})</option>
+                                    <option key={u.id} value={u.id}>{u.firstName} {u.lastName} ({u.function})</option>
                                 ))}
                             </select>
                         </div>
@@ -110,7 +110,7 @@ const ResourceAllocation = () => {
                         <tbody>
                             {projectAllocations.map(alloc => (
                                 <tr key={alloc.id}>
-                                    <td>{alloc.user.username}</td>
+                                    <td>{alloc.user.firstName} {alloc.user.lastName}</td>
                                     <td>{alloc.user.function}</td>
                                     <td>{new Date(alloc.assignmentDate).toLocaleDateString()}</td>
                                     <td>{new Date(alloc.endDate).toLocaleDateString()}</td>

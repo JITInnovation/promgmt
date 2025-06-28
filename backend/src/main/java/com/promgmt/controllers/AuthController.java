@@ -92,6 +92,7 @@ public class AuthController {
     roles.add(userRole);
 
     user.setRoles(roles);
+    user.setFunction("dev");
     userRepository.save(user);
 
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));

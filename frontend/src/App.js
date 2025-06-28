@@ -17,6 +17,7 @@ import CreateProject from "./pages/CreateProject";
 import ProjectList from "./pages/ProjectList";
 import ProjectDetails from "./pages/ProjectDetails";
 import ResourceAllocation from "./pages/ResourceAllocation";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   const [showManagerBoard, setShowManagerBoard] = useState(false);
@@ -51,6 +52,14 @@ const App = () => {
               Home
             </Link>
           </li>
+
+          {currentUser && (
+            <li className="nav-item">
+              <Link to={"/dashboard"} className="nav-link">
+                Dashboard
+              </Link>
+            </li>
+          )}
 
           {showManagerBoard && (
             <li className="nav-item dropdown">
@@ -143,6 +152,7 @@ const App = () => {
           <Route path="/projects" element={<ProjectList />} />
           <Route path="/projects/:id" element={<ProjectDetails />} />
           <Route path="/resource-allocation" element={<ResourceAllocation />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </div>

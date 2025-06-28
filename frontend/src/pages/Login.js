@@ -17,8 +17,12 @@ const Login = () => {
     setLoading(true);
 
     AuthService.login(username, password).then(
-      () => {
-        navigate("/profile");
+      (user) => {
+        if (user.roles && user.roles.includes("ROLE_DEVELOPER") && !user.roles.includes("ROLE_MANAGER")) {
+          navigate("/dev");
+        } else {
+          navigate("/profile");
+        }
         window.location.reload();
       },
       (error) => {

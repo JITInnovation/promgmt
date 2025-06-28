@@ -2,6 +2,8 @@
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/PromgmtApplication.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/security/services/UserDetailsServiceImpl.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/security/services/UserDetailsImpl.java
+/home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/payload/request/AllocationRequest.java
+/home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/models/Allocation.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/models/ERole.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/models/Project.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/repositories/UserRepository.java
@@ -11,6 +13,7 @@
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/repositories/RoleRepository.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/payload/response/UserInfoResponse.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/security/WebSecurityConfig.java
+/home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/controllers/AllocationController.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/controllers/TestController.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/payload/request/LoginRequest.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/models/User.java
@@ -18,3 +21,4 @@
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/models/Role.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/repositories/ProjectRepository.java
 /home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/controllers/AdminController.java
+/home/biplab/windsurf_projects/promgmt/backend/src/main/java/com/promgmt/repositories/AllocationRepository.java

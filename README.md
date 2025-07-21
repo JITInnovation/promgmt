@@ -6,7 +6,7 @@ This project consists of a Java Spring Boot backend and a React frontend. Follow
 
 ## Prerequisites
 - Java 17 or higher
-- Node.js (v14 or higher recommended) & npm or yarn
+- Node.js (v14 or higher recommended) & npm
 - (Optional) Maven or Gradle for backend build
 
 ---
@@ -22,15 +22,9 @@ This project consists of a Java Spring Boot backend and a React frontend. Follow
      ```bash
      ./mvnw spring-boot:run
      ```
-   - If using Gradle:
-     ```bash
-     ./gradlew bootRun
-     ```
    - Or, if you have Maven/Gradle installed globally:
      ```bash
      mvn spring-boot:run
-     # or
-     gradle bootRun
      ```
 3. The backend server will typically start at `http://localhost:8080`
 

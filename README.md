@@ -45,14 +45,10 @@ This project consists of a Java Spring Boot backend and a React frontend. Follow
 2. Install dependencies:
    ```bash
    npm install
-   # or
-   yarn
    ```
 3. Start the React development server:
    ```bash
    npm start
-   # or
-   yarn start
    ```
 4. The frontend will typically start at `http://localhost:3000`
 
